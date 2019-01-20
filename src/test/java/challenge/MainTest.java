@@ -11,13 +11,13 @@ import org.junit.Test;
 
 public class MainTest {
 	
-	private LeitorCSV leitor;
+	private Main main;
 
 	@Test
 	public void q1() throws Exception {
 		
-		leitor = new LeitorCSV();
-		leitor.leDadosArquivo();
+		main = new Main();
+		main.montaMapaJogadores();
 		
 		assertNotEquals(0, new Main().q1());
 	}

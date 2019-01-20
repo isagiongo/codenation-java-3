@@ -1,7 +1,7 @@
 package challenge;
 
 import java.math.BigDecimal;
-import java.util.Calendar;
+import java.time.LocalDate;
 
 public class Jogador {
 
@@ -13,7 +13,7 @@ public class Jogador {
 	private Integer special;
 	private Integer age;
 	private String league;
-	private Calendar birthDate;
+	private LocalDate birthDate;
 	private Double heightCm;
 	private Double weightKg;
 	private String bodyType;
@@ -26,7 +26,7 @@ public class Jogador {
 	private BigDecimal eurReleaseClause;
 
 	public Jogador(Long id, String name, String fullName, String club, String clubLogo, Integer special, Integer age,
-			String league, Calendar birthDate, Double heightCm, Double weightKg, String bodyType, Boolean realFace,
+			String league, LocalDate birthDate, Double heightCm, Double weightKg, String bodyType, Boolean realFace,
 			String flag, String nationality, String photo, BigDecimal eurValue, BigDecimal eurWage,
 			BigDecimal eurReleaseClause) {
 		super();
@@ -115,11 +115,11 @@ public class Jogador {
 		this.league = league;
 	}
 
-	public Calendar getBirthDate() {
+	public LocalDate getBirthDate() {
 		return birthDate;
 	}
 
-	public void setBirthDate(Calendar birthDate) {
+	public void setBirthDate(LocalDate birthDate) {
 		this.birthDate = birthDate;
 	}
 
@@ -202,5 +202,16 @@ public class Jogador {
 	public void setEurReleaseClause(BigDecimal eurReleaseClause) {
 		this.eurReleaseClause = eurReleaseClause;
 	}
+
+	@Override
+	public String toString() {
+		return "Jogador [id=" + id + ", name=" + name + ", fullName=" + fullName + ", club=" + club + ", clubLogo="
+				+ clubLogo + ", special=" + special + ", age=" + age + ", league=" + league + ", birthDate=" + birthDate
+				+ ", heightCm=" + heightCm + ", weightKg=" + weightKg + ", bodyType=" + bodyType + ", realFace="
+				+ realFace + ", flag=" + flag + ", nationality=" + nationality + ", photo=" + photo + ", eurValue="
+				+ eurValue + ", eurWage=" + eurWage + ", eurReleaseClause=" + eurReleaseClause + "]";
+	}
+	
+	
 
 }

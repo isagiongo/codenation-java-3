@@ -9,7 +9,7 @@ public class Principal {
 
 	public static void main(String[] args)  {
 
-		String fileName = "teste.txt";
+		String fileName = "../java-3/src/test/java/challenge/teste.txt";
 
 		//read file into stream, try-with-resources
 		try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
