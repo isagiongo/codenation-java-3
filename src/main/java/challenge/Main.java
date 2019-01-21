@@ -50,21 +50,19 @@ public class Main {
 
 	// Liste o primeiro nome (coluna `full_name`) dos 20 primeiros jogadores.
 	public List<String> q3() {
-		List<String> primeirosVinte = jogadores.stream()
+		return jogadores.stream()
 				.limit(20).map(Jogador::getFullName)
 				.collect(Collectors.toList());
-		return primeirosVinte;
 	}
 
 	// Quem são os top 10 jogadores que possuem as maiores cláusulas de rescisão?
 	// (utilize as colunas `full_name` e `eur_release_clause`)
 	public List<String> q4() {
-		List<String> dezMaiores = jogadores.stream()
+		return jogadores.stream()
 				.filter(j -> j.getEurReleaseClause() != null)
 				.sorted(Comparator.comparingDouble(Jogador::getEurReleaseClause).reversed())
 				.limit(10).map(Jogador::getFullName)
 				.collect(Collectors.toList());
-		return dezMaiores;
 	}
 
 	// Quem são os 10 jogadores mais velhos (use como critério de desempate o campo

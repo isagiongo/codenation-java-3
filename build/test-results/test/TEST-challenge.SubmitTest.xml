@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="challenge.SubmitTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2019-01-21T18:12:38" hostname="isa-Lenovo-G50-80" time="4.956">
+<testsuite name="challenge.SubmitTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2019-01-21T22:23:19" hostname="isa-Lenovo-G50-80" time="4.387">
   <properties/>
-  <testcase name="q1" classname="challenge.SubmitTest" time="1.742"/>
-  <testcase name="q2" classname="challenge.SubmitTest" time="0.885"/>
-  <testcase name="q3" classname="challenge.SubmitTest" time="0.562"/>
-  <testcase name="q4" classname="challenge.SubmitTest" time="0.626"/>
-  <testcase name="q5" classname="challenge.SubmitTest" time="0.551"/>
-  <testcase name="q6" classname="challenge.SubmitTest" time="0.588"/>
+  <testcase name="q1" classname="challenge.SubmitTest" time="1.408"/>
+  <testcase name="q2" classname="challenge.SubmitTest" time="0.878"/>
+  <testcase name="q3" classname="challenge.SubmitTest" time="0.505"/>
+  <testcase name="q4" classname="challenge.SubmitTest" time="0.582"/>
+  <testcase name="q5" classname="challenge.SubmitTest" time="0.503"/>
+  <testcase name="q6" classname="challenge.SubmitTest" time="0.51"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
