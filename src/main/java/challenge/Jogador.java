@@ -1,65 +1,28 @@
 package challenge;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class Jogador implements Comparable{
+public class Jogador {
 
 	private Integer id;
 	private String name;
 	private String fullName;
 	private String club;
-//	private String clubLogo;
-//	private Integer special;
-//	private Integer age;
-//	private String league;
-//	private LocalDate birthDate;
-//	private Double heightCm;
-//	private Double weightKg;
-//	private String bodyType;
-//	private Boolean realFace;
-//	private String flag;
+	private LocalDate birthDate;
 	private String nationality;
-//	private String photo;
-//	private BigDecimal eurValue;
-//	private BigDecimal eurWage;
-//	private BigDecimal eurReleaseClause;
+	private BigDecimal eurReleaseClause;
 
-//	public Jogador(Long id, String name, String fullName, String club, String clubLogo, Integer special, Integer age,
-//			String league, LocalDate birthDate, Double heightCm, Double weightKg, String bodyType, Boolean realFace,
-//			String flag, String nationality, String photo, BigDecimal eurValue, BigDecimal eurWage,
-//			BigDecimal eurReleaseClause) {
-//		super();
-//		this.id = id;
-//		this.name = name;
-//		this.fullName = fullName;
-//		this.club = club;
-//		this.clubLogo = clubLogo;
-//		this.special = special;
-//		this.age = age;
-//		this.league = league;
-//		this.birthDate = birthDate;
-//		this.heightCm = heightCm;
-//		this.weightKg = weightKg;
-//		this.bodyType = bodyType;
-//		this.realFace = realFace;
-//		this.flag = flag;
-//		this.nationality = nationality;
-//		this.photo = photo;
-//		this.eurValue = eurValue;
-//		this.eurWage = eurWage;
-//		this.eurReleaseClause = eurReleaseClause;
-//	}
-	
-	public Jogador(Integer id, String name, String fullName, String club,  
-			String nationality) {
+	public Jogador(Integer id, String name, String fullName, String club, LocalDate birthDate, String nationality,
+			BigDecimal eurReleaseClause) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.fullName = fullName;
 		this.club = club;
-//		this.birthDate = birthDate;
+		this.birthDate = birthDate;
 		this.nationality = nationality;
-//		this.eurReleaseClause = eurReleaseClause;
+		this.eurReleaseClause = eurReleaseClause;
 	}
 
 	public Integer getId() {
@@ -94,85 +57,13 @@ public class Jogador implements Comparable{
 		this.club = club;
 	}
 
-//	public String getClubLogo() {
-//		return clubLogo;
-//	}
-//
-//	public void setClubLogo(String clubLogo) {
-//		this.clubLogo = clubLogo;
-//	}
-//
-//	public Integer getSpecial() {
-//		return special;
-//	}
-//
-//	public void setSpecial(Integer special) {
-//		this.special = special;
-//	}
-//
-//	public Integer getAge() {
-//		return age;
-//	}
-//
-//	public void setAge(Integer age) {
-//		this.age = age;
-//	}
-//
-//	public String getLeague() {
-//		return league;
-//	}
-//
-//	public void setLeague(String league) {
-//		this.league = league;
-//	}
-//
-//	public LocalDate getBirthDate() {
-//		return birthDate;
-//	}
-//
-//	public void setBirthDate(LocalDate birthDate) {
-//		this.birthDate = birthDate;
-//	}
-//
-//	public Double getHeightCm() {
-//		return heightCm;
-//	}
-//
-//	public void setHeightCm(Double heightCm) {
-//		this.heightCm = heightCm;
-//	}
-//
-//	public Double getWeightKg() {
-//		return weightKg;
-//	}
-//
-//	public void setWeightKg(Double weightKg) {
-//		this.weightKg = weightKg;
-//	}
-//
-//	public String getBodyType() {
-//		return bodyType;
-//	}
-//
-//	public void setBodyType(String bodyType) {
-//		this.bodyType = bodyType;
-//	}
-//
-//	public Boolean getRealFace() {
-//		return realFace;
-//	}
-//
-//	public void setRealFace(Boolean realFace) {
-//		this.realFace = realFace;
-//	}
-//
-//	public String getFlag() {
-//		return flag;
-//	}
-//
-//	public void setFlag(String flag) {
-//		this.flag = flag;
-//	}
+	public LocalDate getBirthDate() {
+		return birthDate;
+	}
+
+	public void setBirthDate(LocalDate birthDate) {
+		this.birthDate = birthDate;
+	}
 
 	public String getNationality() {
 		return nationality;
@@ -182,44 +73,11 @@ public class Jogador implements Comparable{
 		this.nationality = nationality;
 	}
 
-//	public String getPhoto() {
-//		return photo;
-//	}
-//
-//	public void setPhoto(String photo) {
-//		this.photo = photo;
-//	}
-//
-//	public BigDecimal getEurValue() {
-//		return eurValue;
-//	}
-//
-//	public void setEurValue(BigDecimal eurValue) {
-//		this.eurValue = eurValue;
-//	}
-//
-//	public BigDecimal getEurWage() {
-//		return eurWage;
-//	}
-//
-//	public void setEurWage(BigDecimal eurWage) {
-//		this.eurWage = eurWage;
-//	}
-//
-//	public BigDecimal getEurReleaseClause() {
-//		return eurReleaseClause;
-//	}
-//
-//	public void setEurReleaseClause(BigDecimal eurReleaseClause) {
-//		this.eurReleaseClause = eurReleaseClause;
-//	}
-
-	@Override
-	public int compareTo(Object o) {
-		// TODO Auto-generated method stub
-		return 0;
+	public BigDecimal getEurReleaseClause() {
+		return eurReleaseClause;
 	}
-	
-	
 
+	public void setEurReleaseClause(BigDecimal eurReleaseClause) {
+		this.eurReleaseClause = eurReleaseClause;
+	}
 }
