@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import com.opencsv.bean.CsvToBeanBuilder;
@@ -49,7 +50,8 @@ public class Main {
 
 	// Liste o primeiro nome (coluna `full_name`) dos 20 primeiros jogadores.
 	public List<String> q3() {
-		List<String> primeirosVinte = jogadores.stream().limit(20).map(Jogador::getFullName)
+		List<String> primeirosVinte = jogadores.stream()
+				.limit(20).map(Jogador::getFullName)
 				.collect(Collectors.toList());
 		return primeirosVinte;
 	}
@@ -70,7 +72,8 @@ public class Main {
 	// (utilize as colunas `full_name` e `birth_date`)
 	public List<String> q5() {
 		List<String> maisVelhos = jogadores.stream().sorted(Comparator.comparing(Jogador::getBirthDate)
-				.reversed()).map(Jogador::getFullName).limit(10).collect(Collectors.toList());
+				.reversed().thenComparingDouble(Jogador::getEurWage))
+				.map(Jogador::getFullName).limit(10).collect(Collectors.toList());
 		return maisVelhos;
 	}
 
@@ -78,7 +81,10 @@ public class Main {
 	// as chaves são as idades e os valores a contagem.
 	// (utilize a coluna `age`)
 	public Map<Integer, Integer> q6() {
-		return null;
+		Collector<Object, ?, Integer> contador = Collectors.reducing(0, e -> 1, Integer::sum);
+        return jogadores.stream()
+                .sorted(Comparator.comparingInt(Jogador::getAge))
+                .collect(Collectors.groupingBy(Jogador::getAge, contador));
 	}
 
 }

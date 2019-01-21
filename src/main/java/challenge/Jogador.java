@@ -20,6 +20,9 @@ public class Jogador {
 	@CsvBindByName(column = "club")
 	private String club;
 	
+	@CsvBindByName(column = "age")
+	private Integer age;
+	
 	@CsvBindByName(column = "birth_date")
     @CsvDate("yyyy-MM-dd")
 	private Date birthDate;
@@ -35,13 +38,15 @@ public class Jogador {
 	
 	public Jogador() {}
 
-	public Jogador(String id, String name, String fullName, String club, Date birthDate, String nationality,
+	public Jogador(String id, String name, String fullName, String club, 
+			Integer age, Date birthDate, String nationality,
 			Double eurWage, Double eurReleaseClause) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.fullName = fullName;
 		this.club = club;
+		this.age = age;
 		this.birthDate = birthDate;
 		this.nationality = nationality;
 		this.eurWage = eurWage;
@@ -78,6 +83,14 @@ public class Jogador {
 
 	public void setClub(String club) {
 		this.club = club;
+	}
+	
+	public Integer getAge() {
+		return age;
+	}
+	
+	public void setAge(Integer age) {
+		this.age = age;
 	}
 
 	public Date getBirthDate() {
