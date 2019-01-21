@@ -71,10 +71,9 @@ public class Main {
 	// `eur_wage`)?
 	// (utilize as colunas `full_name` e `birth_date`)
 	public List<String> q5() {
-		List<String> maisVelhos = jogadores.stream().sorted(Comparator.comparing(Jogador::getBirthDate)
-				.reversed().thenComparingDouble(Jogador::getEurWage))
-				.map(Jogador::getFullName).limit(10).collect(Collectors.toList());
-		return maisVelhos;
+		return jogadores.stream().sorted(Comparator.comparing(Jogador::getBirthDate)
+				.thenComparingDouble(Jogador::getEurWage)).limit(10)
+				.map(Jogador::getFullName).collect(Collectors.toList());
 	}
 
 	// Conte quantos jogadores existem por idade. Para isso, construa um mapa onde
