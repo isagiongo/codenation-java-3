@@ -1,20 +1,42 @@
 package challenge;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Date;
+
+import com.opencsv.bean.CsvBindByName;
+import com.opencsv.bean.CsvDate;
 
 public class Jogador {
 
-	private Integer id;
+	@CsvBindByName(column = "ID")
+	private String id;
+	
+	@CsvBindByName(column = "name")
 	private String name;
-	private String fullName;
-	private String club;
-	private LocalDate birthDate;
-	private String nationality;
-	private BigDecimal eurReleaseClause;
 
-	public Jogador(Integer id, String name, String fullName, String club, LocalDate birthDate, String nationality,
-			BigDecimal eurReleaseClause) {
+	@CsvBindByName(column = "full_name")
+	private String fullName;
+	
+	@CsvBindByName(column = "club")
+	private String club;
+	
+	@CsvBindByName(column = "birth_date")
+    @CsvDate("yyyy-MM-dd")
+	private Date birthDate;
+	
+	@CsvBindByName(column = "nationality")
+	private String nationality;
+	
+	@CsvBindByName(column = "eur_wage")
+	private Double eurWage;
+	
+	@CsvBindByName(column = "eur_release_clause")
+	private Double eurReleaseClause;
+	
+	public Jogador() {}
+
+	public Jogador(String id, String name, String fullName, String club, Date birthDate, String nationality,
+			Double eurWage, Double eurReleaseClause) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -22,14 +44,15 @@ public class Jogador {
 		this.club = club;
 		this.birthDate = birthDate;
 		this.nationality = nationality;
+		this.eurWage = eurWage;
 		this.eurReleaseClause = eurReleaseClause;
 	}
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -57,11 +80,11 @@ public class Jogador {
 		this.club = club;
 	}
 
-	public LocalDate getBirthDate() {
+	public Date getBirthDate() {
 		return birthDate;
 	}
 
-	public void setBirthDate(LocalDate birthDate) {
+	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
 
@@ -72,12 +95,20 @@ public class Jogador {
 	public void setNationality(String nationality) {
 		this.nationality = nationality;
 	}
+	
+	public Double getEurWage() {
+		return eurWage;
+	}
+	
+	public void setEurWage(Double eurWage) {
+		this.eurWage = eurWage;
+	}
 
-	public BigDecimal getEurReleaseClause() {
+	public Double getEurReleaseClause() {
 		return eurReleaseClause;
 	}
 
-	public void setEurReleaseClause(BigDecimal eurReleaseClause) {
+	public void setEurReleaseClause(Double eurReleaseClause) {
 		this.eurReleaseClause = eurReleaseClause;
 	}
 }

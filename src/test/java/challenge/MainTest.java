@@ -5,6 +5,7 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Test;
 
@@ -43,13 +44,13 @@ public class MainTest {
 		assertNotNull(result);
 		assertEquals(10, result.size());
 	}
-//
-//	@Test
-//	public void q6() throws Exception {
-//		Map<Integer, Integer> result = new Main().q6();
-//
-//		assertNotNull(result);
-//		assertNotEquals(0, result.size());
-//	}
+
+	@Test
+	public void q6() throws Exception {
+		Map<Integer, Integer> result = new Main().q6();
+
+		assertNotNull(result);
+		assertNotEquals(0, result.size());
+	}
 
 }

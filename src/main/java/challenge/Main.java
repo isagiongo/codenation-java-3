@@ -1,31 +1,36 @@
 package challenge;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.io.FileReader;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
 import java.util.stream.Collectors;
+
+import com.opencsv.bean.CsvToBeanBuilder;
 
 public class Main {
 
-	private List<Jogador> jogadores;
+	private List<Jogador> jogadores = new ArrayList<>();
 
-	public Main() throws FileNotFoundException {
-		jogadores  = new ArrayList<>();
-		File dadosCSV = new File("../java-3/src/main/resources/data.csv");
-		Scanner scanner = new Scanner(dadosCSV);
-		scanner.nextLine();
-		while (scanner.hasNext()) {
-			String str[] = scanner.nextLine().split(",");
-			jogadores.add(new Jogador(new Integer(str[0]), str[1], str[2], str[3], 
-				LocalDate.parse(str[8]), str[14], new BigDecimal(str[18])));
+	public Main() {
+		try {
+			leDados();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
 		}
-		scanner.close();
+	}
+
+	private FileReader abreArquivo() throws FileNotFoundException {
+		URL url = getClass().getClassLoader().getResource("data.csv");
+		return new FileReader(url.getFile());
+	}
+
+	private void leDados() throws FileNotFoundException {
+		FileReader leitor = abreArquivo();
+		jogadores = new CsvToBeanBuilder(leitor).withType(Jogador.class).build().parse();
 	}
 
 	// Quantas nacionalidades (coluna `nationality`) diferentes existem no arquivo?
@@ -52,8 +57,11 @@ public class Main {
 	// Quem são os top 10 jogadores que possuem as maiores cláusulas de rescisão?
 	// (utilize as colunas `full_name` e `eur_release_clause`)
 	public List<String> q4() {
-		List<String> dezMaiores = jogadores.stream().sorted(Comparator.comparing(Jogador::getEurReleaseClause).reversed())
-				.map(Jogador::getFullName).limit(10).collect(Collectors.toList());
+		List<String> dezMaiores = jogadores.stream()
+				.filter(j -> j.getEurReleaseClause() != null)
+				.sorted(Comparator.comparingDouble(Jogador::getEurReleaseClause).reversed())
+				.limit(10).map(Jogador::getFullName)
+				.collect(Collectors.toList());
 		return dezMaiores;
 	}
 
@@ -61,9 +69,8 @@ public class Main {
 	// `eur_wage`)?
 	// (utilize as colunas `full_name` e `birth_date`)
 	public List<String> q5() {
-		List<String> maisVelhos = jogadores.stream()
-				.sorted(Comparator.comparing(Jogador::getBirthDate).reversed())
-				.map(Jogador::getFullName).limit(10).collect(Collectors.toList());
+		List<String> maisVelhos = jogadores.stream().sorted(Comparator.comparing(Jogador::getBirthDate)
+				.reversed()).map(Jogador::getFullName).limit(10).collect(Collectors.toList());
 		return maisVelhos;
 	}
 
@@ -73,22 +80,5 @@ public class Main {
 	public Map<Integer, Integer> q6() {
 		return null;
 	}
-
-//	public void montaMapaJogadores() throws IOException {
-//		String fileName = "../java-3/src/main/resources/data.csv";
-//		
-//		try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
-//			stream.skip(1).map(line -> line.split(","))
-//					.map(str -> new Jogador(Long.parseLong(str[0]), str[1], str[2], str[3], str[4],
-//							Integer.parseInt(str[5]), Integer.parseInt(str[6]), str[7],
-//							LocalDate.parse(str[8], DateTimeFormatter.ofPattern("yyyy-MM-dd")),
-//							Double.parseDouble(str[9]), Double.parseDouble(str[10]), str[11],
-//							Boolean.parseBoolean(str[12]), str[13], str[14], str[15], new BigDecimal(str[16]),
-//							new BigDecimal(str[17]), new BigDecimal(str[18])))
-//					.forEach(System.out::println);
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//	}
 
 }
